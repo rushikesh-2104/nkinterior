@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
+import { Navbar, NavbarButton, NavbarLogo, NavBody, NavItems } from "@/components/ui/resizable-navbar";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -17,6 +18,14 @@ export const metadata: Metadata = {
   description: "By Komal Kadu",
 };
 
+const navItems = [
+  { name: "Home", link: "/" },
+  { name: "About", link: "#about" },
+  { name: "Services", link: "#services" },
+  { name: "Projects", link: "#projects" },
+  { name: "Contact", link: "#contact" },
+];
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -27,6 +36,15 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
+        <Navbar>
+          <NavBody>
+            <NavbarLogo />
+            <NavItems items={navItems} />
+            <NavbarButton variant="gradient" href="#contact">
+              Get Started
+            </NavbarButton>
+          </NavBody>
+        </Navbar>
         {children}
       </body>
     </html>

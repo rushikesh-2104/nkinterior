@@ -1,7 +1,8 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
-import { Navbar, NavbarButton, NavbarLogo, NavBody, NavItems } from "@/components/ui/resizable-navbar";
+import { Navbar, NavbarLogo, NavBody, NavItems } from "@/components/ui/resizable-navbar";
+import Mobnav from "./components/Mobnav";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -36,16 +37,19 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
+        <div className="md:hidden"><Mobnav /></div>
+
         <Navbar>
           <NavBody>
             <NavbarLogo />
+            {/* ✅ Pass navItems to your NavItems component */}
             <NavItems items={navItems} />
-            <NavbarButton variant="gradient" href="#contact">
-              Get Started
-            </NavbarButton>
           </NavBody>
         </Navbar>
+
         {children}
+
+
       </body>
     </html>
   );

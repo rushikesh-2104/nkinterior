@@ -2,15 +2,15 @@ import React from 'react'
 import Hero from './components/Hero'
 import About from './components/About'
 import Footer from './components/Footer'
+import Contactus from './components/Contactus'
 
 const page = () => {
   return (
     <div>
-      <Hero/>
-      <About/>
-      <Footer/>
-      
-      
+      <Hero />
+      <About />
+      <Contactus />
+      <Footer />
     </div>
   )
 }

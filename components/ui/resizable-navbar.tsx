@@ -9,6 +9,10 @@ import {
 } from "motion/react";
 import React, { useRef, useState } from "react";
 
+/* -------------------------------------------------------------------------- */
+/*                                   TYPES                                    */
+/* -------------------------------------------------------------------------- */
+
 interface NavbarProps {
   children: React.ReactNode;
   className?: string;
@@ -21,13 +25,10 @@ interface NavBodyProps {
 }
 
 interface NavItemsProps {
-  items: {
-    name: string;
-    link: string;
-  }[];
+  items: { name: string; link: string }[];
   className?: string;
   onItemClick?: () => void;
-  visible?: boolean; // added
+  visible?: boolean;
 }
 
 interface MobileNavProps {
@@ -48,34 +49,31 @@ interface MobileNavMenuProps {
   onClose: () => void;
 }
 
+/* -------------------------------------------------------------------------- */
+/*                                MAIN NAVBAR                                 */
+/* -------------------------------------------------------------------------- */
+
 export const Navbar = ({ children, className }: NavbarProps) => {
   const ref = useRef<HTMLDivElement>(null);
-  const { scrollY } = useScroll({
-    target: ref,
-    offset: ["start start", "end start"],
-  });
+  const { scrollY } = useScroll({ target: ref, offset: ["start start", "end start"] });
   const [visible, setVisible] = useState<boolean>(false);
 
-  useMotionValueEvent(scrollY, "change", (latest) => {
-    setVisible(latest > 100);
-  });
+  useMotionValueEvent(scrollY, "change", (latest) => setVisible(latest > 100));
 
   return (
-    <motion.div
-      ref={ref}
-      className={cn("sticky inset-x-0 top-20 z-40 w-full", className)}
-    >
+    <motion.div ref={ref} className={cn("sticky inset-x-0 top-20 z-40 w-full", className)}>
       {React.Children.map(children, (child) =>
         React.isValidElement(child)
-          ? React.cloneElement(
-              child as React.ReactElement<{ visible?: boolean }>,
-              { visible },
-            )
-          : child,
+          ? React.cloneElement(child as React.ReactElement<{ visible?: boolean }>, { visible })
+          : child
       )}
     </motion.div>
   );
 };
+
+/* -------------------------------------------------------------------------- */
+/*                                 NAV BODY                                   */
+/* -------------------------------------------------------------------------- */
 
 export const NavBody = ({ children, className, visible }: NavBodyProps) => {
   return (
@@ -83,31 +81,32 @@ export const NavBody = ({ children, className, visible }: NavBodyProps) => {
       animate={{
         backdropFilter: visible ? "blur(10px)" : "none",
         boxShadow: visible
-          ? "0 0 24px rgba(34, 42, 53, 0.06), 0 1px 1px rgba(0, 0, 0, 0.05), 0 0 0 1px rgba(34, 42, 53, 0.04), 0 0 4px rgba(34, 42, 53, 0.08), 0 16px 68px rgba(47, 48, 55, 0.05), 0 1px 0 rgba(255, 255, 255, 0.1) inset"
+          ? "0 0 24px rgba(34,42,53,0.06), 0 1px 1px rgba(0,0,0,0.05)"
           : "none",
         width: visible ? "40%" : "100%",
         y: visible ? 20 : 0,
       }}
-      transition={{
-        type: "spring",
-        stiffness: 200,
-        damping: 50,
-      }}
-      style={{
-        minWidth: "800px",
-      }}
+      transition={{ type: "spring", stiffness: 200, damping: 50 }}
+      style={{ minWidth: "800px" }}
       className={cn(
         "relative z-[60] mx-auto hidden w-full max-w-7xl flex-row items-center justify-between self-start rounded-full bg-transparent px-4 py-2 lg:flex dark:bg-transparent",
         visible && "bg-white/80 dark:bg-neutral-950/80",
-        className,
+        className
       )}
     >
-      {children}
+      {React.Children.map(children, (child) =>
+        React.isValidElement(child)
+          ? React.cloneElement(child as React.ReactElement<{ visible?: boolean }>, { visible })
+          : child
+      )}
     </motion.div>
   );
 };
 
-// ✅ UPDATED — added visible prop for color change
+/* -------------------------------------------------------------------------- */
+/*                                NAV ITEMS                                   */
+/* -------------------------------------------------------------------------- */
+
 export const NavItems = ({ items, className, onItemClick, visible }: NavItemsProps) => {
   const [hovered, setHovered] = useState<number | null>(null);
 
@@ -116,10 +115,8 @@ export const NavItems = ({ items, className, onItemClick, visible }: NavItemsPro
       onMouseLeave={() => setHovered(null)}
       className={cn(
         "absolute inset-0 hidden flex-1 flex-row items-center justify-center space-x-2 text-sm font-medium transition duration-200 lg:flex lg:space-x-2",
-        visible
-          ? "text-black dark:text-neutral-300" // after scroll
-          : "text-white", // top of page
-        className,
+        visible ? "text-black dark:text-neutral-300" : "text-white",
+        className
       )}
     >
       {items.map((item, idx) => (
@@ -135,7 +132,7 @@ export const NavItems = ({ items, className, onItemClick, visible }: NavItemsPro
               layoutId="hovered"
               className={cn(
                 "absolute inset-0 h-full w-full rounded-full",
-                visible ? "bg-gray-100 dark:bg-neutral-800" : "bg-white/20",
+                visible ? "bg-gray-100 dark:bg-neutral-800" : "bg-white/20"
               )}
             />
           )}
@@ -146,14 +143,16 @@ export const NavItems = ({ items, className, onItemClick, visible }: NavItemsPro
   );
 };
 
+/* -------------------------------------------------------------------------- */
+/*                              MOBILE NAV CONTAINER                          */
+/* -------------------------------------------------------------------------- */
+
 export const MobileNav = ({ children, className, visible }: MobileNavProps) => {
   return (
     <motion.div
       animate={{
         backdropFilter: visible ? "blur(10px)" : "none",
-        boxShadow: visible
-          ? "0 0 24px rgba(34, 42, 53, 0.06), 0 1px 1px rgba(0, 0, 0, 0.05)"
-          : "none",
+        boxShadow: visible ? "0 0 24px rgba(34,42,53,0.06)" : "none",
         width: visible ? "90%" : "100%",
         borderRadius: visible ? "4px" : "2rem",
         y: visible ? 20 : 0,
@@ -162,26 +161,27 @@ export const MobileNav = ({ children, className, visible }: MobileNavProps) => {
       className={cn(
         "relative z-50 mx-auto flex w-full max-w-[calc(100vw-2rem)] flex-col items-center justify-between bg-transparent px-0 py-2 lg:hidden",
         visible && "bg-white/80 dark:bg-neutral-950/80",
-        className,
+        className
       )}
     >
-      {children}
+      {React.Children.map(children, (child) =>
+        React.isValidElement(child)
+          ? React.cloneElement(child as React.ReactElement<{ visible?: boolean }>, { visible })
+          : child
+      )}
     </motion.div>
   );
 };
 
-export const MobileNavHeader = ({
-  children,
-  className,
-}: MobileNavHeaderProps) => {
-  return (
-    <div
-      className={cn("flex w-full flex-row items-center justify-between", className)}
-    >
-      {children}
-    </div>
-  );
-};
+/* -------------------------------------------------------------------------- */
+/*                           MOBILE NAV HEADER + MENU                         */
+/* -------------------------------------------------------------------------- */
+
+export const MobileNavHeader = ({ children, className }: MobileNavHeaderProps) => (
+  <div className={cn("flex w-full flex-row items-center justify-between", className)}>
+    {children}
+  </div>
+);
 
 export const MobileNavMenu = ({
   children,
@@ -198,7 +198,7 @@ export const MobileNavMenu = ({
           exit={{ opacity: 0 }}
           className={cn(
             "absolute inset-x-0 top-16 z-50 flex w-full flex-col items-start justify-start gap-4 rounded-lg bg-white px-4 py-8 shadow-lg dark:bg-neutral-950",
-            className,
+            className
           )}
         >
           {children}
@@ -208,38 +208,54 @@ export const MobileNavMenu = ({
   );
 };
 
-// ✅ UPDATED — icon color now changes based on state
+/* -------------------------------------------------------------------------- */
+/*                              MOBILE NAV TOGGLE                             */
+/* -------------------------------------------------------------------------- */
+
 export const MobileNavToggle = ({
   isOpen,
   onClick,
+  visible,
 }: {
   isOpen: boolean;
   onClick: () => void;
+  visible?: boolean;
 }) => {
   return isOpen ? (
-    <IconX className="text-black dark:text-white" onClick={onClick} />
+    <IconX
+      className={cn(visible ? "text-black" : "text-white", "dark:text-white")}
+      onClick={onClick}
+    />
   ) : (
-    <IconMenu2 className="text-white dark:text-white" onClick={onClick} />
+    <IconMenu2
+      className={cn(visible ? "text-black" : "text-white", "dark:text-white")}
+      onClick={onClick}
+    />
   );
 };
 
-// ✅ UPDATED — logo text now also reacts to scroll
-export const NavbarLogo = ({ visible }: { visible?: boolean }) => {
-  return (
-    <a
-      href="#"
-      className={cn(
-        "relative z-20 mr-4 flex items-center space-x-2 px-2 py-1 text-sm font-normal transition-colors",
-        visible ? "text-black" : "text-white",
-      )}
-    >
-      <img src="/LOGO_nk.png" alt="logo" width={30} height={30} />
-      <span className={cn("font-medium", visible ? "text-black" : "text-white")}>
-        NKinteriors
-      </span>
-    </a>
-  );
-};
+/* -------------------------------------------------------------------------- */
+/*                                   LOGO                                     */
+/* -------------------------------------------------------------------------- */
+
+export const NavbarLogo = ({ visible }: { visible?: boolean }) => (
+  <a
+    href="#"
+    className={cn(
+      "relative z-20 mr-4 flex items-center space-x-2 px-2 py-1 text-sm font-normal transition-colors",
+      visible ? "text-black" : "text-white"
+    )}
+  >
+    <img src="/LOGO_nk.png" alt="logo" width={30} height={30} />
+    <span className={cn("font-medium", visible ? "text-black" : "text-white")}>
+      NKinteriors
+    </span>
+  </a>
+);
+
+/* -------------------------------------------------------------------------- */
+/*                                  BUTTON                                    */
+/* -------------------------------------------------------------------------- */
 
 export const NavbarButton = ({
   href,

@@ -1,4 +1,83 @@
-export default function ServicesOffered() {
+import { StickyScroll } from '@/components/ui/sticky-scroll-reveal'
+import React from 'react'
+
+const Services = () => {
+    
+const content = [
+  {
+  title: "Client Consultation",
+  description:
+    "We begin by understanding your vision, lifestyle, and space requirements. Our team meets with you to discuss design preferences, budget, and project goals. From evaluating your site to providing expert suggestions on layouts, materials, and aesthetics — our consultation ensures every detail aligns with your dream space. This collaborative process helps set a clear design direction and builds a strong foundation before execution begins.",
+  content: (
+    <div className="flex h-full w-full items-center justify-center text-white">
+      <video
+        src="/consultant.mp4"
+        width={300}
+        height={300}
+        className="h-full w-full object-cover"
+        loop
+        autoPlay
+      />
+    </div>
+  ),
+},
+
+  {
+  title: "Site Visit & Requirement Study",
+  description:
+    "Our process begins with a detailed site visit to understand the space, structure, and design potential. We take precise measurements, study natural lighting, and evaluate the existing layout. During this stage, we discuss your lifestyle needs, design preferences, and functional requirements to ensure the final design aligns perfectly with your vision. This step helps us build a practical and creative foundation for your interior project.",
+  content: (
+    <div className="flex h-full w-full items-center justify-center text-white">
+      <video
+        src="/site-visit.mp4"
+        width={300}
+        height={300}
+        className="h-full w-full object-cover"
+        loop
+        autoPlay
+      />
+    </div>
+  ),
+},
+
+  {
+  title: "3D Rendering & Visualization",
+  description:
+    "Visualize your dream interiors through realistic 3D renders and walkthroughs. From lighting and textures to furniture and color palettes, we bring your design concept to life before execution begins.",
+  content: (
+    <div className="flex h-full w-full items-center justify-center text-white">
+      <video
+        src="/3d.mp4"
+        width={300}
+        height={300}
+        className="h-full w-full object-cover"
+        loop
+        autoPlay
+        muted
+      />
+    </div>
+  ),
+},
+
+  {
+    title: "Running out of content",
+    description:
+      "Experience real-time updates and never stress about version control again. Our platform ensures that you're always working on the most recent version of your project, eliminating the need for constant manual updates. Stay in the loop, keep your team aligned, and maintain the flow of your work without any interruptions.",
+    content: (
+      <div className="flex h-full w-full items-center justify-center bg-[linear-gradient(to_bottom_right,var(--cyan-500),var(--emerald-500))] text-white">
+        Running out of content
+      </div>
+    ),
+  },
+];
+  return (
+    <div className="w-full py-4">
+        <StickyScroll content={content}/>
+    </div>
+  )
+}
+
+export default Servicesexport default function ServicesOffered() {
   const services = [
     {
       title: "Residential Interior Design",

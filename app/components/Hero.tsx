@@ -10,7 +10,7 @@ const Hero = () => {
       playsInline
       loop></video>
 
-      <div className='min-h-screen flex items-center justify-center'>
+      <div className='min-h-screen flex items-center justify-center bg-gray-50'>
       <section className="relative flex flex-col items-center justify-center text-center min-h-[80vh] px-4">
     
         {/* Headline */}

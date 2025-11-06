@@ -78,7 +78,7 @@ const Projects = () => {
               className="bg-white h-auto w-full rounded-xl border-2 border-gray-200 hover:scale-[1.03] hover:shadow-md transition duration-500"
             >
               <div
-                className="bg-amber-200 rounded-t-xl h-80"
+                className="bg-gray-100 rounded-t-xl h-80"
                 style={{
                   backgroundImage: `url(${project.image})`,
                   backgroundSize: "cover",

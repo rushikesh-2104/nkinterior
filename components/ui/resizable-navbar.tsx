@@ -122,11 +122,20 @@ export const NavItems = ({ items, className, onItemClick, visible }: NavItemsPro
       {items.map((item, idx) => (
         <a
           onMouseEnter={() => setHovered(idx)}
-          onClick={onItemClick}
-          className="relative px-4 py-2"
+          onClick={(e) => {
+            e.preventDefault();
+            const targetId = item.link.replace("#", "");
+            const element = document.getElementById(targetId);
+            if (element) {
+              element.scrollIntoView({ behavior: "smooth" });
+            }
+            if (onItemClick) onItemClick(); // closes mobile menu if needed
+          }}
+          className="relative px-4 py-2 cursor-pointer"
           key={`link-${idx}`}
           href={item.link}
         >
+
           {hovered === idx && (
             <motion.div
               layoutId="hovered"
@@ -271,9 +280,9 @@ export const NavbarButton = ({
   className?: string;
   variant?: "primary" | "secondary" | "dark" | "gradient";
 } & (
-  | React.ComponentPropsWithoutRef<"a">
-  | React.ComponentPropsWithoutRef<"button">
-)) => {
+    | React.ComponentPropsWithoutRef<"a">
+    | React.ComponentPropsWithoutRef<"button">
+  )) => {
   const baseStyles =
     "px-4 py-2 rounded-md bg-white button text-black text-sm font-bold relative cursor-pointer hover:-translate-y-0.5 transition duration-200 inline-block text-center";
 

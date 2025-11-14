@@ -4,22 +4,23 @@ import About from './components/About'
 import Footer from './components/Footer'
 import Testimonials from './components/Testimonials'
 import Contactus from './components/Contactus'
-import Services from './components/Services'
 import Projects from './components/Projects'
-import Services from './components/Services'
 import Aboutus from './components/Aboutus'
+import Services from './components/Services'
+import Testimonialtry from './components/Testimonialtry'
 
 const page = () => {
   return (
     <div>
-      <Hero />
-      <Aboutus />
-      <About />
-      <Services/>
-      <Projects />
-      <Services />
-      <Contactus />
-      <Testimonials/>
+      <section id='home'><Hero /></section>
+      <section id='about'><Aboutus /></section>
+      <section id=''><About /></section>
+      <section id='project'><Projects /></section>
+      <section id='service'><Services /></section>
+      <section id=''><Testimonialtry /></section>
+      <section id='contact'><Contactus /></section>
+      
+      {/* <Testimonials/> */}
       <Footer />
     </div>
   )

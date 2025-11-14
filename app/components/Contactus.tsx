@@ -2,8 +2,9 @@ import React from 'react'
 
 const Contactus = () => {
   return (
-    <div>
-      <div className="min-h-screen w-full grid grid-cols-1 lg:grid-cols-2 gap-8 px-6 py-12 bg-gray-50 text-gray-800 lg:pl-30">
+    <section>
+      <div className='lg:pb-20 bg-gray-50'>
+      <div className=" w-full grid grid-cols-1 lg:grid-cols-2 gap-8 px-6 py-12 bg-gray-50 text-gray-800 lg:pl-30">
         <div className="flex flex-col items-center justify-center gap-8 text-center px-4">
           <h1 className="text-5xl md:text-6xl font-serif">Get in Touch</h1>
           <p className="text-lg text-gray-600 md:text-2xl font-medium max-w-2xl">
@@ -21,7 +22,7 @@ const Contactus = () => {
             <div className="flex flex-col gap-3 p-4 rounded-xl shadow-sm shadow-gray-400 bg-white hover:shadow-md transition duration-300">
               <h3 className="text-xl font-semibold">Visit our location</h3>
               <p className="text-gray-600">
-                Shop No 30, Tulsi Chambers, Surana Construction Reality,<br />
+                Shop No 30, Tulsi Chgrays, Surana Construction Reality,<br />
                 Sion Trombay Road, Chembur, Mumbai – 400071
               </p>
               <a href="https://maps.app.goo.gl/gGKmbLzkJsCxw5HL8" className="font-semibold text-blue-600 hover:underline">Get Directions</a>
@@ -33,10 +34,10 @@ const Contactus = () => {
         <div className="flex items-center justify-center">
           <div className="relative w-full max-w-lg group">
             
-            <div className="absolute inset-0 bg-gray-200 border border-gray-300 shadow-xl rounded-2xl transform group-hover:-rotate-6 transition duration-500"></div>
+            <div className="absolute inset-0 bg-gray-200 border border-gray-300 shadow-md rounded-2xl transform group-hover:-rotate-6 transition duration-500"></div>
+            
 
-
-            <div className="relative bg-white border border-gray-300 shadow-xl rounded-2xl p-6 sm:p-8">
+            <div className="relative bg-white border border-gray-300 shadow-md rounded-2xl p-6 sm:p-8">
               <form className="flex flex-col gap-5">
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <div className="flex flex-col gap-1">
@@ -70,6 +71,8 @@ const Contactus = () => {
       </div>
 
     </div>
+    </section>
+    
   )
 }
 

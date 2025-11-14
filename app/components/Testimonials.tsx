@@ -51,7 +51,7 @@ const Testimonials = () => {
   ]
   
   return (
-    <div>
+    <div className='bg-gray-50'>
       <AnimatedTestimonials autoplay={true} testimonials={testimonials} />
     </div>
   )

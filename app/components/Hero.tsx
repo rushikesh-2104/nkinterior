@@ -1,6 +1,14 @@
+"use client";
 import React from 'react'
 
 const Hero = () => {
+  const scrollToSection = (id: string) => {
+    const element = document.getElementById(id);
+    if (element) {
+      element.scrollIntoView({ behavior: "smooth" });
+    }
+  };
+
   return (
 
     <div>
@@ -21,11 +29,11 @@ const Hero = () => {
         <p className="m-8 text-2xl font-medium text-white">Transforming Spaces Into Timeless Experiences by creating elegant, functional interiors.</p>
         {/* Buttons */}
         <div className="mt-2 flex flex-col sm:flex-row items-center gap-4">
-          <button className="px-8 py-3 bg-white text-black font-medium rounded-full shadow-md hover:scale-[1.03] transition">
+          <button onClick={() => scrollToSection("contact")} className="px-8 py-3 bg-white text-black border-2 border-amber-500 font-medium rounded-full shadow-md hover:scale-[1.03] transition">
             Book Consultation
           </button>
 
-          <button className="px-8 py-3 bg-[#1b1b1b] text-gray-300 border border-gray-600 font-medium rounded-full hover:bg-gray-800 transition">
+          <button onClick={() => scrollToSection("project")} className="px-8 py-3 bg-[#1b1b1b] text-amber-200 border border-gray-600 font-medium rounded-full hover:bg-gray-800 transition">
             Explore our Work
           </button>
         </div>

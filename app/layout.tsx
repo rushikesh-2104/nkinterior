@@ -4,6 +4,8 @@ import { Inter, Playfair_Display } from "next/font/google";
 import "./globals.css";
 import { Navbar, NavbarLogo, NavBody, NavItems } from "@/components/ui/resizable-navbar";
 import Mobnav from "./components/Mobnav";
+import Footer from "./components/Footer";
+import GoToTop from "./components/gototop";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -37,8 +39,8 @@ export const metadata: Metadata = {
 const navItems = [
   { name: "Home", link: "#home" },
   { name: "About", link: "#about" },
-  { name: "Services", link: "#service" },
   { name: "Projects", link: "#project" },
+  { name: "Services", link: "#service" },
   { name: "Contact", link: "#contact" },
 ];
 
@@ -62,10 +64,9 @@ export default function RootLayout({
           </NavBody>
         </Navbar>
 
-        
-
         {children}
-
+        <GoToTop />
+        <Footer />
 
       </body>
     </html>

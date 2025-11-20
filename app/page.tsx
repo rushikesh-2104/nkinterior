@@ -19,9 +19,6 @@ const page = () => {
       <section id='service'><Services /></section>
       <section id=''><Testimonialtry /></section>
       <section id='contact'><Contactus /></section>
-      
-      {/* <Testimonials/> */}
-      <Footer />
     </div>
   )
 }

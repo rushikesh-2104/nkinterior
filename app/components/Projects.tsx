@@ -95,9 +95,10 @@ const Projects = () => {
                   {project.description}
                 </p>
 
-                <p className="text-sm font-medium text-[#C49A6C] cursor-pointer hover:underline">
+                <button className="text-sm font-medium text-amber-600 cursor-pointer hover:underline">
                   READ MORE ➜
-                </p>
+                </button>
+
               </div>
             </div>
           ))}

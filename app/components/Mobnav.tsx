@@ -7,8 +7,8 @@ import { Menu, X } from "lucide-react";
 const navItems = [
   { name: "Home", link: "#home" },
   { name: "About", link: "#about" },
-  { name: "Services", link: "#service" },
   { name: "Projects", link: "#project" },
+  { name: "Services", link: "#service" }, 
   { name: "Contact", link: "#contact" },
 ];
 
@@ -22,13 +22,13 @@ const Mobnav = () => {
         <div className="flex justify-between items-center px-5 py-4">
 
           {/* Logo */}
-          <h1 className="text-xl font-bold tracking-wide text-white">
+          <h1 className="text-xl font-bold tracking-wide text-black">
             NKInteriors
           </h1>
 
           {/* Menu / Close Button */}
           <button
-            className="text-white"
+            className="text-black"
             onClick={() => setOpen(!open)}
             aria-label="Toggle Menu"
           >
@@ -55,7 +55,7 @@ const Mobnav = () => {
                   }
                   setOpen(false);
                 }}
-                className="px-5 py-3 text-left text-white font-medium hover:bg-white/20"
+                className="px-5 py-3 text-left text-black font-medium hover:bg-white/20"
               >
                 {item.name}
               </button>

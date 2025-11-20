@@ -6,7 +6,7 @@ const Contactus = () => {
   const [whatsapp, setWhatsapp] = useState("");
   const [message, setMessage] = useState("");
 
-  const handleSubmit = (e) => {
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
     const finalMessage = `
@@ -34,7 +34,7 @@ ${name}
 
   return (
     <section>
-      <div className="lg:pb-20 bg-[#F7F5F2]">
+      <div className="lg:pb-20 bg-[#FAF5EF]">
         <div className="w-full grid grid-cols-1 lg:grid-cols-2 gap-8 px-6 py-12 text-[#2B2B2B] lg:pl-30">
 
           {/* LEFT SIDE */}
@@ -56,9 +56,12 @@ ${name}
                 <p className="text-[#4A4A4A]">
                   WhatsApp: <span className="font-medium">+91 9833930391</span>
                 </p>
-                <p className="font-semibold text-[#4A5D3A]">
-                  info@thebombaydesignstudio.com
-                </p>
+                <a 
+                  href="https://mail.google.com/mail/?view=cm&fs=1&to=hrishi210402@gmail.com&su=Inquiry%20about%20NK%20Interiors&body=Hello%20NK%20Interiors%20Team,"
+                  target="_blank"
+                  className="font-semibold text-amber-600 hover:underline transition-all duration-200">
+                  hrishi210402@gmail.com
+                </a>
               </div>
 
               {/* Location Card */}
@@ -71,7 +74,8 @@ ${name}
                 </p>
                 <a
                   href="https://maps.app.goo.gl/gGKmbLzkJsCxw5HL8"
-                  className="font-semibold text-[#4A5D3A] hover:underline"
+                  className="font-semibold text-amber-600 hover:underline transition-all duration-200"
+                  // text-[#4A5D3A]
                 >
                   Get Directions
                 </a>
@@ -146,7 +150,7 @@ ${name}
                   <div className="flex justify-end">
                     <button
                       type="submit"
-                      className="px-6 py-2 bg-[#617a4c] text-white border-2 border-transparent rounded-xl font-semibold hover:bg-[#7dca42] hover:scale-105 transition duration-300"
+                      className="px-6 py-2 bg-green-400 text-white border-2 border-transparent rounded-xl font-semibold hover:bg-green-600 hover:scale-105 transition duration-300"
                     >
                       Send on WhatsApp
                     </button>

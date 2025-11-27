@@ -21,7 +21,7 @@ const staggerParent: Variants = {
 
 const AboutUs = () => {
   return (
-    <section className="bg-[#FAF5EF] px-8 md:px-20">
+    <section className="bg-[#FAF5EF] px-5 md:px-20">
       <motion.div initial="hidden" whileInView="show" viewport={{ once: true, amount: 0.2 }} className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-10 items-center bg-[#FAF5EF]">
         {/* --- Left Section (Text) --- */}
         <motion.div variants={staggerParent} className="sm:-ml-20 bg-[#FAF5EF]">
@@ -36,7 +36,7 @@ const AboutUs = () => {
             {/* --- Card 1 --- */}
             <div>
               <h4 className="text-2xl font-bold mb-3">Design That Feels Like You</h4>
-              <p className="text-gray-600 text-xl text-justify">
+              <p className="text-gray-600 md:text-xl text-lg text-justify">
                 At NK Interiors, we believe great design starts with understanding people. Every home and space has its own personality, and our goal is to bring that to life through thoughtful, creative, and functional design. We focus on creating interiors that feel warm, balanced, and uniquely yours — blending modern aesthetics with comfort and practicality. Whether it’s a cozy apartment, a stylish home, or a vibrant workspace, we design spaces that make everyday living more beautiful and enjoyable.
               </p>
             </div>
@@ -45,7 +45,7 @@ const AboutUs = () => {
         </motion.div>
 
         {/* --- Right Section (Image Grid) --- */}
-        <motion.div variants={staggerParent} className="grid grid-cols-2 grid-rows-1 gap-4 sm:ml-10 sm:-mr-20 bg-[#FAF5EF]">
+        <motion.div variants={staggerParent} className="grid grid-cols-2 grid-rows-1 gap-4 md:ml-10 md:-mr-20 bg-[#FAF5EF]">
           <motion.div variants={fadeUp}>
             <div className="grid grid-cols-1 grid-rows-2 gap-4">
               <div className="flex flex-col justify-end">
@@ -78,7 +78,7 @@ const AboutUs = () => {
         </motion.div>
       </motion.div>
 
-      <motion.div initial="hidden" whileInView="show" viewport={{ once: true, amount: 0.2 }} className="max-w-7xl mx-auto px-6 grid grid-cols-1 sm:grid-cols-2 gap-20 items-center pb-30">
+      <motion.div initial="hidden" whileInView="show" viewport={{ once: true, amount: 0.2 }} className="max-w-7xl mx-auto md:px-6 grid grid-cols-1 sm:grid-cols-2 gap-20 items-center pb-30">
         {/* Left: Image */}
         <motion.div variants={fadeUp} className="bg-blue-200 h-96 object-cover rounded-lg shadow-md ">
           <img src="/Aboutus_img_5.png" className="w-full h-full object-cover" alt="" />
@@ -89,7 +89,7 @@ const AboutUs = () => {
           <h3 className="text-2xl font-bold mb-3">
             Our Approach to Every Project
           </h3>
-          <p className="text-gray-600 text-xl text-justify">
+          <p className="text-gray-600 md:text-xl text-lg text-justify">
             Our team of passionate designers and creators work closely with you from concept to completion, making the process smooth and enjoyable. We value collaboration, communication, and creativity at every step. From selecting color palettes and textures to arranging furniture and lighting, we make sure every detail reflects your story and style. At NK Interiors, we don’t just decorate — we design spaces that feel like home.
           </p>
         </motion.div>

@@ -33,7 +33,7 @@ const About = () => {
           <h2 className="text-3xl sm:text-4xl font-bold text-[#1A1A1A] tracking-wide">
             WHY US?
           </h2>
-          <p className="mt-4 text-[#7A6852] max-w-2xl text-lg mx-auto leading-relaxed">
+          <p className="mt-4 text-[#7A6852] max-w-2xl text-lg  mx-auto leading-relaxed">
             We bring creativity, sustainability, and comfort together to craft
             interiors that truly reflect your lifestyle and personality.
           </p>

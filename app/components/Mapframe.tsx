@@ -6,7 +6,7 @@ import React from 'react';
 const MapFrameInner = () => {
   return (
     <iframe
-      src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d1886.3191967397586!2d73.1101513!3d18.9915708!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be7e9003d56d7df%3A0x6e4663374a8ab3d1!2sPitale%20chowk!5e0!3m2!1sen!2sin!4v1763384333251!5m2!1sen!2sin"
+      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3772.3272846897644!2d73.1130787!3d19.005294600000003!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be7e9b1ff064199%3A0x49345fe2dbe3676!2sAmar%20Niwas!5e0!3m2!1sen!2sin!4v1764222633468!5m2!1sen!2sin"
       width="100%"
       height="100%"
       loading="lazy"

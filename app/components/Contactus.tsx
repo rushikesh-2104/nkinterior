@@ -68,12 +68,12 @@ ${name}
               <div className="flex flex-col gap-3 p-4 rounded-xl shadow-sm bg-white border border-[#E8E2DA] hover:shadow-md transition duration-300">
                 <h3 className="text-xl font-semibold">Visit our location</h3>
                 <p className="text-[#4A4A4A]">
-                  Shop No 30, Tulsi Chgrays, Surana Construction Reality,
+                  Shop No 3, Amar Nivas, Plot No. 17, Sector 10
                   <br />
-                  Sion Trombay Road, Chembur, Mumbai – 400071
+                  Khanda Colony, New Panvel, Panvel – 400071
                 </p>
                 <a
-                  href="https://maps.app.goo.gl/gGKmbLzkJsCxw5HL8"
+                  href="https://maps.app.goo.gl/9mA9amBFg1Vfdqpt6"
                   className="font-semibold text-amber-600 hover:underline transition-all duration-200"
                   // text-[#4A5D3A]
                 >

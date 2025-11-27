@@ -32,9 +32,50 @@ const playfair = Playfair_Display({
 
 
 export const metadata: Metadata = {
-  title: "NkInteriors",
-  description: "By Komal Kadu",
+  title: {
+    default: "NK Interiors | Luxury Interior Designer in Navi Mumbai",
+    template: "%s | NK Interiors",
+  },
+
+  description:
+    "NK Interiors by Komal Kadu delivers premium interior design solutions in Navi Mumbai & Panvel. Transform your home and commercial spaces with elegant, modern and functional designs.",
+
+  openGraph: {
+    title: "NK Interiors | Premium Interior Designers",
+    description:
+      "Transform your space with NK Interiors. Expert solutions in home & commercial interior design in Navi Mumbai and Panvel.",
+    url: "https://nkinteriors.in", // change to your real domain
+    siteName: "NK Interiors",
+    images: [
+      {
+        url: "/card.png", // CREATE this image in public folder
+        width: 1200,
+        height: 630,
+        alt: "NK Interiors - Interior Design Studio",
+      },
+    ],
+    locale: "en_IN",
+    type: "website",
+  },
+
+  twitter: {
+    card: "summary_large_image",
+    title: "NK Interiors | Interior Designers Navi Mumbai",
+    description:
+      "Premium interior design services by NK Interiors for homes, offices & commercial spaces.",
+    images: ["/card.png"],
+  },
+
+  other: {
+    "og:image:secure_url": "/card.png",
+    "og:image:type": "image/png",
+  },
+
+  icons: {
+    icon: "/favicon.ico",
+  },
 };
+
 
 const navItems = [
   { name: "Home", link: "#home" },
